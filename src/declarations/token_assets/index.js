@@ -1,8 +1,8 @@
 import { Actor, HttpAgent } from "@dfinity/agent";
 
 // Imports and re-exports candid interface
-import { idlFactory } from './token_assets.did.js';
-export { idlFactory } from './token_assets.did.js';
+import { idlFactory } from './token_assets.did';
+export { idlFactory } from './token_assets.did';
 // CANISTER_ID is replaced by webpack based on node environment
 export const canisterId = process.env.TOKEN_ASSETS_CANISTER_ID;
 
@@ -10,7 +10,7 @@ export const canisterId = process.env.TOKEN_ASSETS_CANISTER_ID;
  * 
  * @param {string | import("@dfinity/principal").Principal} canisterId Canister ID of Agent
  * @param {{agentOptions?: import("@dfinity/agent").HttpAgentOptions; actorOptions?: import("@dfinity/agent").ActorConfig}} [options]
- * @return {import("@dfinity/agent").ActorSubclass<import("./token_assets.did.js")._SERVICE>}
+ * @return {import("@dfinity/agent").ActorSubclass<import("./token_assets.did")._SERVICE>}
  */
  export const createActor = (canisterId, options) => {
   const agent = new HttpAgent({ ...options?.agentOptions });
@@ -33,6 +33,6 @@ export const canisterId = process.env.TOKEN_ASSETS_CANISTER_ID;
   
 /**
  * A ready-to-use agent for the token_assets canister
- * @type {import("@dfinity/agent").ActorSubclass<import("./token_assets.did.js")._SERVICE>}
+ * @type {import("@dfinity/agent").ActorSubclass<import("./token_assets.did")._SERVICE>}
  */
  export const token_assets = createActor(canisterId);
